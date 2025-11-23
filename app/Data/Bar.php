@@ -4,15 +4,15 @@ namespace App\Data;
 
 class Bar
 {
-    private Foo $foo;
+    public Foo $foo;
 
     public function __construct(Foo $foo)
     {
         $this->foo = $foo;
     }
 
-    function bar(): string
+    public function bar(): string
     {
-        return "bar and " . $this->foo->foo();
+        return $this->foo->foo() . ' and Bar';
     }
 }
