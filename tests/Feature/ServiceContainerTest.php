@@ -22,12 +22,12 @@ class ServiceContainerTest extends TestCase
      */
     public function testDependencyInjectionServiceContainer()
     {
-        $foo = $this->app->make(Foo::class);
-        $foo2 = $this->app->make(Foo::class);
+        $foo1 = $this->app->make(Foo::class); // new Foo()
+        $foo2 = $this->app->make(Foo::class); // new Foo()
 
-        self::assertEquals('foo', $foo->foo());
-        self::assertEquals('foo', $foo2->foo());
-        self::assertNotSame($foo, $foo2);
+        self::assertEquals('Foo', $foo1->foo());
+        self::assertEquals('Foo', $foo2->foo());
+        self::assertNotSame($foo1, $foo2);
     }
 
     public function testBind()

@@ -2,10 +2,10 @@
 
 namespace App\Data;
 
-class foo
+class Foo
 {
-    public function foo():string
+    public function foo(): string
     {
-        return "foo";
+        return "Foo";
     }
 }
