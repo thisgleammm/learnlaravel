@@ -16,3 +16,23 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/thisgleam', function () {
+    return "Selamat Datang thisgleam";
+});
+
+Route::redirect('/me', '/thisgleam');
+
+Route::fallback(function () {
+    return "404 by thisgleam";
+});
+
+Route::view('/hello', 'hello', ['name' => 'thisgleam']);
+
+Route::get('/hello-again', function () {
+    return view('hello', ['name' => 'thisgleam']);
+});
+
+Route::get('/hello-world', function () {
+    return view('hello.world', ['name' => 'thisgleam']);
+});
