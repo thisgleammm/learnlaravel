@@ -70,4 +70,16 @@ class RoutingTest extends TestCase
         $this->get('/conflict/gleam')
             ->assertSeeText("Conflict: gleam");
     }
+
+    public function testNamedRoute()
+    {
+        $this->get('/product/1')
+            ->assertSeeText("Link: http://localhost/products/1");
+    }
+
+    public function testNamedRouteRedirect()
+    {
+        $this->get('/product-redirect/1')
+            ->assertRedirect('/products/1');
+    }
 }
