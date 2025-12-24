@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HelloController;
 use App\Http\Controllers\InputController;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\ResponseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -87,3 +88,10 @@ Route::post('/input/filter/except', [InputController::class, 'filterExcept']);
 Route::post('/input/filter/merge', [InputController::class, 'filterMerge']);
 
 Route::post('/file/upload', [FileController::class, 'upload']);
+
+Route::get('/response/hello', [ResponseController::class, 'response']);
+Route::get('/response/header', [ResponseController::class, 'header']);
+Route::get('/response/view', [ResponseController::class, 'responseView']);
+Route::get('/response/json', [ResponseController::class, 'responseJson']);
+Route::get('/response/file', [ResponseController::class, 'responseFile']);
+Route::get('/response/download', [ResponseController::class, 'responseDownload']);
