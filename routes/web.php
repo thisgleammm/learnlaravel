@@ -5,6 +5,7 @@ use App\Http\Controllers\HelloController;
 use App\Http\Controllers\InputController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\ResponseController;
+use App\Http\Controllers\CookieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -95,3 +96,7 @@ Route::get('/response/view', [ResponseController::class, 'responseView']);
 Route::get('/response/json', [ResponseController::class, 'responseJson']);
 Route::get('/response/file', [ResponseController::class, 'responseFile']);
 Route::get('/response/download', [ResponseController::class, 'responseDownload']);
+
+Route::get('/cookie/set', [CookieController::class, 'createCookie']);
+Route::get('/cookie/get', [CookieController::class, 'getCookie']);
+Route::get('/cookie/clear', [CookieController::class, 'clearCookie']);
