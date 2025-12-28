@@ -8,6 +8,7 @@ use App\Http\Controllers\FileController;
 use App\Http\Controllers\ResponseController;
 use App\Http\Controllers\CookieController;
 use App\Http\Controllers\RedirectController;
+use App\Http\Controllers\FormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -120,3 +121,7 @@ Route::get('/middleware/api', function () {
 Route::get('/middleware/group', function () {
     return "GROUP";
 })->middleware('thisgleam');
+
+Route::get('/form', [FormController::class, 'form']);
+Route::post('/form', [FormController::class, 'submitForm']);
+
