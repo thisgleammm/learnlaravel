@@ -9,6 +9,7 @@ use App\Http\Controllers\ResponseController;
 use App\Http\Controllers\CookieController;
 use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\FormController;
+use Illuminate\Support\Facades\URL;
 
 /*
 |--------------------------------------------------------------------------
@@ -115,6 +116,12 @@ Route::get('/redirect/name', [RedirectController::class, 'redirectName']);
 Route::get('/redirect/hello/{name}', [RedirectController::class, 'redirectHello'])
     ->name('redirect-hello');
 
+Route::get('/redirect/named', function () {
+    // return route('redirect-hello', ['name' => 'gleam']);
+    // return url()->route('redirect-hello', ['name' => 'gleam']);
+    return URL::route('redirect-hello', ['name' => 'gleam']);
+});
+
 Route::get('/redirect/action', [RedirectController::class, 'redirectAction']) ;
 Route::get('/redirect/away', [RedirectController::class, 'redirectAway']) ;
 
@@ -128,6 +135,13 @@ Route::middleware(['contoh:123456,401'])->prefix('/middleware')->group(function 
     });
 });
 
+Route::get('/url/action', function () {
+    return URL::action([FormController ::class, 'form']);
+});
 Route::get('/form', [FormController::class, 'form']);
 Route::post('/form', [FormController::class, 'submitForm']);
+
+Route::get('/url/current', function () {
+    return URL::full();
+});
 
