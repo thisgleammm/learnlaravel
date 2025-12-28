@@ -28,7 +28,8 @@ class CookieControllerTest extends TestCase
             ->get('/cookie/get')
             ->assertJson([
                 'userId' => 'thisgleam',
-                'isMem ber' => 'true'
+                'isMember' => 'true'
             ]);
     }
 }
+ 
