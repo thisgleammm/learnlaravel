@@ -11,6 +11,7 @@ use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\FormController;
 use Illuminate\Support\Facades\URL;
 use App\Http\Controllers\SessionController;
+use App\Exceptions\ValidationException;
 
 /*
 |--------------------------------------------------------------------------
@@ -148,3 +149,14 @@ Route::get('/url/current', function () {
 
 Route::get('/session/create', [SessionController::class, 'createSession']);
 Route::get('/session/get', [SessionController::class, 'getSession']);
+
+Route::get('/error/sample', function () {
+    throw new Exception("Sample Error");
+});
+Route::get('/error/manual', function () {
+    report(new Exception("Sample Error"));
+    return 'OK';
+});
+Route::get('/error/validation', function () {
+    throw new ValidationException("Validation Error");
+});
