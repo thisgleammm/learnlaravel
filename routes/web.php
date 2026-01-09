@@ -10,6 +10,7 @@ use App\Http\Controllers\CookieController;
 use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\FormController;
 use Illuminate\Support\Facades\URL;
+use App\Http\Controllers\SessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -145,3 +146,5 @@ Route::get('/url/current', function () {
     return URL::full();
 });
 
+Route::get('/session/create', [SessionController::class, 'createSession']);
+Route::get('/session/get', [SessionController::class, 'getSession']);
